@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConferencesModelStoreContainer" CdmEntityContainer="ConferencesEntities">
+    <EntitySetMapping Name="ConferenceTracks">
+      <EntityTypeMapping TypeName="ConferencesModel.ConferenceTrack">
+        <MappingFragment StoreEntitySet="ConferenceTracks">
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="TrackName" ColumnName="TrackName" />
+          <ScalarProperty Name="TrackChair" ColumnName="TrackChair" />
+          <ScalarProperty Name="MinSessions" ColumnName="MinSessions" />
+          <ScalarProperty Name="MaxSessions" ColumnName="MaxSessions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeprecatedConferenceTracks">
+      <EntityTypeMapping TypeName="ConferencesModel.DeprecatedConferenceTrack">
+        <MappingFragment StoreEntitySet="DeprecatedConferenceTracks">
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="TrackName" ColumnName="TrackName" />
+          <ScalarProperty Name="TrackChair" ColumnName="TrackChair" />
+          <ScalarProperty Name="MinSessions" ColumnName="MinSessions" />
+          <ScalarProperty Name="MaxSessions" ColumnName="MaxSessions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="ConferencesModel.Session">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="ConferenceTrackTrackId" ColumnName="ConferenceTrackTrackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Speakers">
+      <EntityTypeMapping TypeName="ConferencesModel.Speaker">
+        <MappingFragment StoreEntitySet="Speakers">
+          <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="InactiveDate" ColumnName="InactiveDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workshops">
+      <EntityTypeMapping TypeName="ConferencesModel.Workshop">
+        <MappingFragment StoreEntitySet="Workshops">
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="PreRequisite" ColumnName="PreRequisite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SpeakerSessions" TypeName="ConferencesModel.SpeakerSessions" StoreEntitySet="SpeakerSessions">
+      <EndProperty Name="Sessions">
+        <ScalarProperty Name="SessionId" ColumnName="Sessions_SessionId" />
+      </EndProperty>
+      <EndProperty Name="Speakers">
+        <ScalarProperty Name="SpeakerId" ColumnName="Speakers_SpeakerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

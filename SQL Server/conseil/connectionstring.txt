@@ -1,0 +1,15 @@
+remarque: public static string ConnectionStringName
+{
+	get 
+	{
+	if(configurationManager.AppSetting['ConnectionStgringName']  !=null)
+		{
+			return ConfigurationManager.AppSettings["ConnectionStringName"].ToString();
+		}
+		return "DefaultConnection";
+	}
+}
+2//ajouter le appsectting dans app.config
+<appSettings>
+<add key ="ConnectionStringName" value="Dev" />
+</appSettings>

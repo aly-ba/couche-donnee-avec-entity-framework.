@@ -1,0 +1,14 @@
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\bin\Debug\Model.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\bin\Debug\Model.pdb
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\obj\Debug\Model.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\obj\Debug\Model.pdb
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\bin\Debug\EntityFramework.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Completed_DataAnnotations\Model\bin\Debug\EntityFramework.xml
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\bin\Debug\Model.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\bin\Debug\Model.pdb
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\bin\Debug\EntityFramework.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\bin\Debug\EntityFramework.xml
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\obj\Debug\Model.dll
+C:\Users\rowmil\Documents\Personal\EFBooks\CodeFirst\Completed Solutions\Chapter2\BAGA_DataAnnotations\Model\obj\Debug\Model.pdb

@@ -1,0 +1,16 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\bin\Debug\QueryTests.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\bin\Debug\QueryTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\bin\Debug\QueryTests.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\obj\Debug\QueryTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\QueryTests\obj\Debug\QueryTests.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\bin\Debug\QueryTests.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\bin\Debug\QueryTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\bin\Debug\QueryTests.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\obj\Debug\QueryTests.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\QueryTests\obj\Debug\QueryTests.pdb

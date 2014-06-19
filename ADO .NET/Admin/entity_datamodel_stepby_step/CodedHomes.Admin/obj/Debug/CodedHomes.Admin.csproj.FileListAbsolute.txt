@@ -1,0 +1,7 @@
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\bin\CodedHomes.Admin.dll
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\bin\CodedHomes.Admin.pdb
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\bin\EntityFramework.dll
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\bin\EntityFramework.xml
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\obj\Debug\CodedHomes.Admin.csprojResolveAssemblyReference.cache
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\obj\Debug\CodedHomes.Admin.dll
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\CodedHomes\CodedHomes.Admin\obj\Debug\CodedHomes.Admin.pdb

@@ -1,0 +1,4 @@
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\AccountAtAGlance\AccountAtAGlance.Repository\bin\Debug\AccountAtAGlance.Repository.dll
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\AccountAtAGlance\AccountAtAGlance.Repository\bin\Debug\AccountAtAGlance.Repository.pdb
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\AccountAtAGlance\AccountAtAGlance.Repository\obj\Debug\AccountAtAGlance.Repository.dll
+c:\users\eyebe\pictures\documents\visual studio 2012\Projects\AccountAtAGlance\AccountAtAGlance.Repository\obj\Debug\AccountAtAGlance.Repository.pdb

@@ -1,0 +1,24 @@
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\bin\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\AWMOdel\AWMOdel\obj\Debug\AWMOdel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\COURSE 1\AWModel\AWModel\obj\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module1\AWModel\AWModel\obj\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\bin\Debug\AWModel.dll.config
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\bin\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\bin\Debug\AWModel.pdb
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\obj\Debug\AWModel.dll
+F:\Documents\Visual Studio 2010\Projects\PSOD\Course 3 Querying\Module2 l2e\AWModel\AWModel\obj\Debug\AWModel.pdb

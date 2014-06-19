@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConferencesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ConferencesModelStoreContainer">
+    <EntitySet Name="ConferenceTracks" EntityType="ConferencesModel.Store.ConferenceTracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeprecatedConferenceTracks" EntityType="ConferencesModel.Store.DeprecatedConferenceTracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="ConferencesModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Speakers" EntityType="ConferencesModel.Store.Speakers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpeakerSessions" EntityType="ConferencesModel.Store.SpeakerSessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Workshops" EntityType="ConferencesModel.Store.Workshops" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ConferenceTrackSession" Association="ConferencesModel.Store.FK_ConferenceTrackSession">
+      <End Role="ConferenceTracks" EntitySet="ConferenceTracks" />
+      <End Role="Sessions" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeakerSession_Session" Association="ConferencesModel.Store.FK_SpeakerSession_Session">
+      <End Role="Sessions" EntitySet="Sessions" />
+      <End Role="SpeakerSessions" EntitySet="SpeakerSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeakerSession_Speaker" Association="ConferencesModel.Store.FK_SpeakerSession_Speaker">
+      <End Role="Speakers" EntitySet="Speakers" />
+      <End Role="SpeakerSessions" EntitySet="SpeakerSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workshop_inherits_Session" Association="ConferencesModel.Store.FK_Workshop_inherits_Session">
+      <End Role="Sessions" EntitySet="Sessions" />
+      <End Role="Workshops" EntitySet="Workshops" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ConferenceTracks">
+    <Key>
+      <PropertyRef Name="TrackId" />
+    </Key>
+    <Property Name="TrackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TrackName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrackChair" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinSessions" Type="int" Nullable="false" />
+    <Property Name="MaxSessions" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeprecatedConferenceTracks">
+    <Key>
+      <PropertyRef Name="TrackId" />
+    </Key>
+    <Property Name="TrackId" Type="int" Nullable="false" />
+    <Property Name="TrackName" Type="nvarchar(max)" />
+    <Property Name="TrackChair" Type="nvarchar(max)" />
+    <Property Name="MinSessions" Type="int" />
+    <Property Name="MaxSessions" Type="int" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Name="SessionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="Length" Type="nvarchar" MaxLength="10" />
+    <Property Name="Level" Type="nvarchar" MaxLength="10" />
+    <Property Name="Abstract" Type="nvarchar" MaxLength="3000" />
+    <Property Name="ConferenceTrackTrackId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Speakers">
+    <Key>
+      <PropertyRef Name="SpeakerId" />
+    </Key>
+    <Property Name="SpeakerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nchar" MaxLength="50" />
+    <Property Name="Expertise" Type="nvarchar(max)" />
+    <Property Name="Bio" Type="nvarchar(max)" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="InactiveDate" Type="date" />
+  </EntityType>
+  <EntityType Name="SpeakerSessions">
+    <Key>
+      <PropertyRef Name="Speakers_SpeakerId" />
+      <PropertyRef Name="Sessions_SessionId" />
+    </Key>
+    <Property Name="Speakers_SpeakerId" Type="int" Nullable="false" />
+    <Property Name="Sessions_SessionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workshops">
+    <Key>
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Name="SessionId" Type="int" Nullable="false" />
+    <Property Name="PreRequisite" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ConferenceTrackSession">
+    <End Role="ConferenceTracks" Type="ConferencesModel.Store.ConferenceTracks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConferenceTracks">
+        <PropertyRef Name="TrackId" />
+      </Principal>
+      <Dependent Role="Sessions">
+        <PropertyRef Name="ConferenceTrackTrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeakerSession_Session">
+    <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="1" />
+    <End Role="SpeakerSessions" Type="ConferencesModel.Store.SpeakerSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sessions">
+        <PropertyRef Name="SessionId" />
+      </Principal>
+      <Dependent Role="SpeakerSessions">
+        <PropertyRef Name="Sessions_SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeakerSession_Speaker">
+    <End Role="Speakers" Type="ConferencesModel.Store.Speakers" Multiplicity="1" />
+    <End Role="SpeakerSessions" Type="ConferencesModel.Store.SpeakerSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speakers">
+        <PropertyRef Name="SpeakerId" />
+      </Principal>
+      <Dependent Role="SpeakerSessions">
+        <PropertyRef Name="Speakers_SpeakerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workshop_inherits_Session">
+    <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="1" />
+    <End Role="Workshops" Type="ConferencesModel.Store.Workshops" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Sessions">
+        <PropertyRef Name="SessionId" />
+      </Principal>
+      <Dependent Role="Workshops">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

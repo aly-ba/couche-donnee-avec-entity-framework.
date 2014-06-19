@@ -1,0 +1,135 @@
+/* Course Data */
+/* Table: CHILDSTAT */
+/* Database: Oracle */
+FIRSTNAME  GENDER BIRTHDATE  HEIGHT  WEIGHT  
+---------  ------ ---------  ------  ------
+LAUREN     F      10-JUN-00  54      876     
+ROSEMARY   F      08-MAY-00  35      123     
+ALBERT     M      02-AUG-00  45      150     
+BUDDY      M      02-OCT-98  45      189     
+FARQUAR    M      05-NOV-98  76      198     
+SIMON      M      03-JAN-99  87      256     
+TOMMY      M      11-DEC-98  78      167 
+
+/* Course Data */
+/* Table: CHILDSTAT */
+/* Database: SQL Server */
+FIRSTNAME  GENDER BIRTHDATE  HEIGHT  WEIGHT  
+---------  ------ ---------  ------  ------
+LAUREN     F      10-JUN-00  54      876     
+ROSEMARY   F      08-MAY-00  35      123     
+ALBERT     M      02-AUG-00  45      150     
+BUDDY      M      02-OCT-98  45      189     
+FARQUAR    M      05-NOV-98  76      198     
+SIMON      M      03-JAN-99  87      256     
+TOMMY      M      11-DEC-98  78      167 
+
+/* Example #22*/
+FIRSTNAME GENDER HEIGHT HEIGHT_DENSERANK
+--------- ------ ------ ----------------
+ROSEMARY  F      35     1                      
+LAUREN    F      54     2                      
+ALBERT    M      45     1                      
+BUDDY     M      45     1                      
+FARQUAR   M      76     2                      
+TOMMY     M      78     3                      
+SIMON     M      87     4 
+
+/* Example #23*/
+FIRSTNAME  GENDER WEIGHT  HEIGHT  HEIGHT_DENSERANK  AVG_WT  
+---------  ------ ------  ------  ----------------  ------
+ROSEMARY   F      123     35      1                 123     
+LAUREN     F      876     54      2                 123     
+ALBERT     M      150     45      1                 169.5   
+BUDDY      M      189     45      1                 169.5   
+FARQUAR    M      198     76      2                 169.5   
+TOMMY      M      167     78      3                 169.5   
+SIMON      M      256     87      4                 169.5 
+
+/* Example #24*/
+FIRSTNAME  GENDER WEIGHT  HEIGHT  HEIGHT_DENSERANK  AVG_WT  
+---------  ------ ------  ------  ----------------  ------
+ROSEMARY   F      123     35      1                 876     
+LAUREN     F      876     54      2                 876     
+ALBERT     M      150     45      1                 256     
+BUDDY      M      189     45      1                 256     
+FARQUAR    M      198     76      2                 256     
+TOMMY      M      167     78      3                 256     
+SIMON      M      256     87      4                 256 
+
+/* Example #25*/
+FIRSTNAME GENDER WEIGHT  MEDIAN_WT  
+--------- ------ ------  ---------
+ROSEMARY  F      123     499.5      
+LAUREN    F      876     499.5      
+ALBERT    M      150     189        
+TOMMY     M      167     189        
+BUDDY     M      189     189        
+FARQUAR   M      198     189        
+SIMON     M      256     189 
+
+/* Example #26*/
+FIRSTNAME HEIGHT  GRP4_HT  
+--------- ------  -------
+ROSEMARY  35      1        
+ALBERT    45      1        
+BUDDY     45      2        
+LAUREN    54      2        
+FARQUAR   76      3        
+TOMMY     78      3        
+SIMON     87      4 
+
+/* Example #27*/
+FIRSTNAME GENDER HEIGHT  GRP4_HT
+--------- ------ ------  -------
+ROSEMARY  F      35      1        
+LAUREN    F      54      2        
+ALBERT    M      45      1        
+BUDDY     M      45      1        
+FARQUAR   M      76      2        
+TOMMY     M      78      3        
+SIMON     M      87      4 
+
+/* Example #28*/
+FIRSTNAME HEIGHT  CUMDIST_HEIGHT  
+--------- ------  --------------
+ROSEMARY  35      0.1429          
+ALBERT    45      0.4286          
+BUDDY     45      0.4286          
+LAUREN    54      0.5714          
+FARQUAR   76      0.7143          
+TOMMY     78      0.8571          
+SIMON     87      1.0000 
+
+/* Example #29*/
+FIRSTNAME HEIGHT  RANK_HEIGHT  PCTDIST_HEIGHT  
+--------- ------  -----------  --------------
+ROSEMARY  35      1            0               
+ALBERT    45      2            0.1667          
+BUDDY     45      2            0.1667          
+LAUREN    54      4            0.5             
+FARQUAR   76      5            0.6667          
+TOMMY     78      6            0.8333          
+SIMON     87      7            1 
+
+/* Example #30*/
+FIRSTNAME HEIGHT  CUMDIST_HEIGHT  PCTDISC_50_HT   PCTDISC_72_HT
+--------- ------  --------------  -------------   -------------
+ROSEMARY  35      0.1429          54		            78           
+ALBERT    45      0.4286          54		            78           
+BUDDY     45      0.4286          54		            78           
+LAUREN    54      0.5714          54		            78           
+FARQUAR   76      0.7143          54		            78           
+TOMMY     78      0.8571          54		            78           
+SIMON     87      1               54		            78 
+
+/* Example #31*/
+FIRSTNAME HEIGHT  PCTCONT_50_HT  PCTCONT_72_HT
+--------- ------  -------------  -------------
+ROSEMARY  35      54		           76.64        
+ALBERT    45      54		           76.64        
+BUDDY     45      54		           76.64        
+LAUREN    54      54		           76.64        
+FARQUAR   76      54		           76.64        
+TOMMY     78      54		           76.64        
+SIMON     87      54		           76.64 

@@ -1,0 +1,20 @@
+-- Check wich views are in the database
+SELECT SCHEMA_NAME(schema_id) AS [Schema],
+		[name]
+FROM sys.views;
+
+--FROM Clauses (table)
+SELECT [BusinessEntityID],
+	 [Name]
+FROM  [Sales]. [vStoreWithAddresses];
+
+--Table variable
+DECLARE @Orders TABLE
+		(OrderID int NOT NULL PRIMARY KEY,
+		OrderDT datetime NOT NULL);
+
+INSERT @Orders
+Values( 1, GETDATE());
+
+SELECT [OrderId], [OrderDT]
+FROM @Orders;

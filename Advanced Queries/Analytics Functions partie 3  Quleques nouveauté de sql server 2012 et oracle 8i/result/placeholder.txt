@@ -1,0 +1,114 @@
+/* Course Data */
+/* Table: CHILDSTAT */
+/* Database: Oracle */
+FIRSTNAME  GENDER BIRTHDATE  HEIGHT  WEIGHT  
+---------  ------ ---------  ------  ------
+LAUREN     F      10-JUN-00  54      876     
+ROSEMARY   F      08-MAY-00  35      123     
+ALBERT     M      02-AUG-00  45      150     
+BUDDY      M      02-OCT-98  45      189     
+FARQUAR    M      05-NOV-98  76      198     
+SIMON      M      03-JAN-99  87      256     
+TOMMY      M      11-DEC-98  78      167 
+
+/* Course Data */
+/* Table: CHILDSTAT */
+/* Database: SQL Server */
+FIRSTNAME  GENDER BIRTHDATE  HEIGHT  WEIGHT  
+---------  ------ ---------  ------  ------
+LAUREN     F      10-JUN-00  54      876     
+ROSEMARY   F      08-MAY-00  35      123     
+ALBERT     M      02-AUG-00  45      150     
+BUDDY      M      02-OCT-98  45      189     
+FARQUAR    M      05-NOV-98  76      198     
+SIMON      M      03-JAN-99  87      256     
+TOMMY      M      11-DEC-98  78      167 
+
+/* Example #14*/
+FIRSTNAME GENDER WEIGHT  LT_CHILD  HV_CHILD
+--------- ------ ------  --------  --------
+ROSEMARY  F      123     ROSEMARY  ROSEMARY
+LAUREN    F      876     ROSEMARY  LAUREN  
+ALBERT    M      150     ALBERT	   ALBERT  
+TOMMY     M      167     ALBERT	   TOMMY   
+BUDDY     M      189     ALBERT	   BUDDY   
+FARQUAR   M      198     ALBERT	   FARQUAR 
+SIMON     M      256     ALBERT	   SIMON 
+
+/* Example #15*/
+FIRSTNAME GENDER WEIGHT  LT_CHILD  HV_CHILD
+--------- ------ ------  --------  --------
+ROSEMARY  F      123     ROSEMARY  LAUREN
+LAUREN    F      876     ROSEMARY  LAUREN  
+ALBERT    M      150     ALBERT	   SIMON
+TOMMY     M      167     ALBERT	   SIMON
+BUDDY     M      189     ALBERT	   SIMON
+FARQUAR   M      198     ALBERT	   SIMON 
+SIMON     M      256     ALBERT	   SIMON 
+
+/* Example #16*/
+GENDER FIRSTNAME WEIGHT  WT_RUN  WT_RUN2  
+------ --------- ------  ------  -------
+F      ROSEMARY  123     123     999      
+F      LAUREN    876     999     999      
+M      ALBERT    150     150     960      
+M      TOMMY     167     317     960      
+M      BUDDY     189     506     960      
+M      FARQUAR   198     704     960      
+M      SIMON     256     960     960 
+
+/* Example #17*/
+FIRSTNAME GENDER WEIGHT  AVG_3 
+--------- ------ ------  -----
+ROSEMARY  F      123     499.5 
+LAUREN    F      876     499.5 
+ALBERT    M      150     158.5 
+TOMMY     M      167     168.6 
+BUDDY     M      189     184.6 
+FARQUAR   M      198     214.3 
+SIMON     M      256     227 
+
+/* Example #18*/
+FIRSTNAME  HEIGHT  WEIGHT  SUM_10_5  
+---------  ------  ------  --------
+ROSEMARY   35      123     123       
+BUDDY      45      189     462       
+ALBERT     45      150     462       
+LAUREN     54      876     1215      
+FARQUAR    76      198     365       
+TOMMY      78      167     365       
+SIMON      87      256     423 
+
+/* Example #19*/
+FIRSTNAME  BIRTHDATE  WEIGHT  AVG_30_60
+---------  ---------  ------  ---------
+BUDDY      02-OCT-98  189     193.5                  
+FARQUAR    05-NOV-98  198     207                    
+TOMMY      11-DEC-98  167     211.5                  
+SIMON      03-JAN-99  256     211.5                  
+ROSEMARY   08-MAY-00  123     499.5                  
+LAUREN     10-JUN-00  876     513                    
+ALBERT     02-AUG-00  150     150 
+
+/* Example #20*/
+FIRSTNAME GENDER WEIGHT NEXT_HEAVY_SEX NTOLAST_HEAVY_SEX
+--------- ------ ------ -------------- -----------------
+ROSEMARY  F      123    876	       123
+LAUREN    F      876    876	       123
+ALBERT    M      150    167	       198
+TOMMY     M      167    167	       198
+BUDDY     M      189    167	       198
+FARQUAR   M      198    167	       198
+SIMON     M      256    167	       198
+
+/* Example #21*/
+FIRSTNAME GENDER WEIGHT NEXT_HEAVY_SEX NTOLAST_HEAVY_SEX
+--------- ------ ------ -------------- -----------------
+ROSEMARY  F      123    876	       123
+LAUREN    F      876    876	       123
+ALBERT    M      150    167	       198
+TOMMY     M      167    167	       198
+BUDDY     M      189    167	       198
+FARQUAR   M      198    167	       198
+SIMON     M      256    167	       198
+

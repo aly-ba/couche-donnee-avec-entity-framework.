@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConferencesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ConferencesModelStoreContainer">
+          <EntitySet Name="ConferenceTracks" EntityType="ConferencesModel.Store.ConferenceTracks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DeprecatedConferenceTracks" EntityType="ConferencesModel.Store.DeprecatedConferenceTracks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sessions" EntityType="ConferencesModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Speakers" EntityType="ConferencesModel.Store.Speakers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SpeakerSessions" EntityType="ConferencesModel.Store.SpeakerSessions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Workshops" EntityType="ConferencesModel.Store.Workshops" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ConferenceTrackSession" Association="ConferencesModel.Store.FK_ConferenceTrackSession">
+            <End Role="ConferenceTracks" EntitySet="ConferenceTracks" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpeakerSession_Session" Association="ConferencesModel.Store.FK_SpeakerSession_Session">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="SpeakerSessions" EntitySet="SpeakerSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpeakerSession_Speaker" Association="ConferencesModel.Store.FK_SpeakerSession_Speaker">
+            <End Role="Speakers" EntitySet="Speakers" />
+            <End Role="SpeakerSessions" EntitySet="SpeakerSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workshop_inherits_Session" Association="ConferencesModel.Store.FK_Workshop_inherits_Session">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="Workshops" EntitySet="Workshops" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ConferenceTracks">
+          <Key>
+            <PropertyRef Name="TrackId" />
+          </Key>
+          <Property Name="TrackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TrackName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TrackChair" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MinSessions" Type="int" Nullable="false" />
+          <Property Name="MaxSessions" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeprecatedConferenceTracks">
+          <Key>
+            <PropertyRef Name="TrackId" />
+          </Key>
+          <Property Name="TrackId" Type="int" Nullable="false" />
+          <Property Name="TrackName" Type="nvarchar(max)" />
+          <Property Name="TrackChair" Type="nvarchar(max)" />
+          <Property Name="MinSessions" Type="int" />
+          <Property Name="MaxSessions" Type="int" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Length" Type="nvarchar" MaxLength="10" />
+          <Property Name="Level" Type="nvarchar" MaxLength="10" />
+          <Property Name="Abstract" Type="nvarchar" MaxLength="3000" />
+          <Property Name="ConferenceTrackTrackId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Speakers">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Country" Type="nchar" MaxLength="50" />
+          <Property Name="Expertise" Type="nvarchar(max)" />
+          <Property Name="Bio" Type="nvarchar(max)" />
+          <Property Name="Inactive" Type="bit" Nullable="false" />
+          <Property Name="InactiveDate" Type="date" />
+        </EntityType>
+        <EntityType Name="SpeakerSessions">
+          <Key>
+            <PropertyRef Name="Speakers_SpeakerId" />
+            <PropertyRef Name="Sessions_SessionId" />
+          </Key>
+          <Property Name="Speakers_SpeakerId" Type="int" Nullable="false" />
+          <Property Name="Sessions_SessionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workshops">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="int" Nullable="false" />
+          <Property Name="PreRequisite" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ConferenceTrackSession">
+          <End Role="ConferenceTracks" Type="ConferencesModel.Store.ConferenceTracks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConferenceTracks">
+              <PropertyRef Name="TrackId" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="ConferenceTrackTrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpeakerSession_Session">
+          <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="1" />
+          <End Role="SpeakerSessions" Type="ConferencesModel.Store.SpeakerSessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="SpeakerSessions">
+              <PropertyRef Name="Sessions_SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpeakerSession_Speaker">
+          <End Role="Speakers" Type="ConferencesModel.Store.Speakers" Multiplicity="1" />
+          <End Role="SpeakerSessions" Type="ConferencesModel.Store.SpeakerSessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speakers">
+              <PropertyRef Name="SpeakerId" />
+            </Principal>
+            <Dependent Role="SpeakerSessions">
+              <PropertyRef Name="Speakers_SpeakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workshop_inherits_Session">
+          <End Role="Sessions" Type="ConferencesModel.Store.Sessions" Multiplicity="1" />
+          <End Role="Workshops" Type="ConferencesModel.Store.Workshops" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="Workshops">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConferencesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ConferencesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConferenceTracks" EntityType="ConferencesModel.ConferenceTrack" />
+          <EntitySet Name="DeprecatedConferenceTracks" EntityType="ConferencesModel.DeprecatedConferenceTrack" />
+          <EntitySet Name="Sessions" EntityType="ConferencesModel.Session" />
+          <EntitySet Name="Speakers" EntityType="ConferencesModel.Speaker" />
+          <EntitySet Name="Workshops" EntityType="ConferencesModel.Workshop" />
+          <AssociationSet Name="FK_ConferenceTrackSession" Association="ConferencesModel.FK_ConferenceTrackSession">
+            <End Role="ConferenceTracks" EntitySet="ConferenceTracks" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workshop_inherits_Session" Association="ConferencesModel.FK_Workshop_inherits_Session">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="Workshops" EntitySet="Workshops" />
+          </AssociationSet>
+          <AssociationSet Name="SpeakerSessions" Association="ConferencesModel.SpeakerSessions">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="Speakers" EntitySet="Speakers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ConferenceTrack">
+          <Key>
+            <PropertyRef Name="TrackId" />
+          </Key>
+          <Property Name="TrackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TrackChair" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MinSessions" Type="Int32" Nullable="false" />
+          <Property Name="MaxSessions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sessions" Relationship="ConferencesModel.FK_ConferenceTrackSession" FromRole="ConferenceTracks" ToRole="Sessions" />
+        </EntityType>
+        <EntityType Name="DeprecatedConferenceTrack">
+          <Key>
+            <PropertyRef Name="TrackId" />
+          </Key>
+          <Property Name="TrackId" Type="Int32" Nullable="false" />
+          <Property Name="TrackName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TrackChair" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MinSessions" Type="Int32" />
+          <Property Name="MaxSessions" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Length" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Level" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Abstract" Type="String" MaxLength="3000" Unicode="true" FixedLength="false" />
+          <Property Name="ConferenceTrackTrackId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConferenceTrack" Relationship="ConferencesModel.FK_ConferenceTrackSession" FromRole="Sessions" ToRole="ConferenceTracks" />
+          <NavigationProperty Name="Workshop" Relationship="ConferencesModel.FK_Workshop_inherits_Session" FromRole="Sessions" ToRole="Workshops" />
+          <NavigationProperty Name="Speakers" Relationship="ConferencesModel.SpeakerSessions" FromRole="Sessions" ToRole="Speakers" />
+        </EntityType>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Expertise" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Bio" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Inactive" Type="Boolean" Nullable="false" />
+          <Property Name="InactiveDate" Type="DateTime" />
+          <NavigationProperty Name="Sessions" Relationship="ConferencesModel.SpeakerSessions" FromRole="Speakers" ToRole="Sessions" />
+        </EntityType>
+        <EntityType Name="Workshop">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <Property Name="PreRequisite" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Session" Relationship="ConferencesModel.FK_Workshop_inherits_Session" FromRole="Workshops" ToRole="Sessions" />
+        </EntityType>
+        <Association Name="FK_ConferenceTrackSession">
+          <End Role="ConferenceTracks" Type="ConferencesModel.ConferenceTrack" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sessions" Type="ConferencesModel.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConferenceTracks">
+              <PropertyRef Name="TrackId" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="ConferenceTrackTrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workshop_inherits_Session">
+          <End Role="Sessions" Type="ConferencesModel.Session" Multiplicity="1" />
+          <End Role="Workshops" Type="ConferencesModel.Workshop" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="Workshops">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SpeakerSessions">
+          <End Role="Sessions" Type="ConferencesModel.Session" Multiplicity="*" />
+          <End Role="Speakers" Type="ConferencesModel.Speaker" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConferencesModelStoreContainer" CdmEntityContainer="ConferencesEntities">
+          <EntitySetMapping Name="ConferenceTracks"><EntityTypeMapping TypeName="ConferencesModel.ConferenceTrack"><MappingFragment StoreEntitySet="ConferenceTracks">
+            <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+            <ScalarProperty Name="TrackName" ColumnName="TrackName" />
+            <ScalarProperty Name="TrackChair" ColumnName="TrackChair" />
+            <ScalarProperty Name="MinSessions" ColumnName="MinSessions" />
+            <ScalarProperty Name="MaxSessions" ColumnName="MaxSessions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DeprecatedConferenceTracks"><EntityTypeMapping TypeName="ConferencesModel.DeprecatedConferenceTrack"><MappingFragment StoreEntitySet="DeprecatedConferenceTracks">
+            <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+            <ScalarProperty Name="TrackName" ColumnName="TrackName" />
+            <ScalarProperty Name="TrackChair" ColumnName="TrackChair" />
+            <ScalarProperty Name="MinSessions" ColumnName="MinSessions" />
+            <ScalarProperty Name="MaxSessions" ColumnName="MaxSessions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Sessions"><EntityTypeMapping TypeName="ConferencesModel.Session"><MappingFragment StoreEntitySet="Sessions">
+            <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Category" ColumnName="Category" />
+            <ScalarProperty Name="Length" ColumnName="Length" />
+            <ScalarProperty Name="Level" ColumnName="Level" />
+            <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+            <ScalarProperty Name="ConferenceTrackTrackId" ColumnName="ConferenceTrackTrackId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Speakers"><EntityTypeMapping TypeName="ConferencesModel.Speaker"><MappingFragment StoreEntitySet="Speakers">
+            <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+            <ScalarProperty Name="Bio" ColumnName="Bio" />
+            <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+            <ScalarProperty Name="InactiveDate" ColumnName="InactiveDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Workshops"><EntityTypeMapping TypeName="ConferencesModel.Workshop"><MappingFragment StoreEntitySet="Workshops">
+            <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+            <ScalarProperty Name="PreRequisite" ColumnName="PreRequisite" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="SpeakerSessions" TypeName="ConferencesModel.SpeakerSessions" StoreEntitySet="SpeakerSessions">
+            <EndProperty Name="Sessions">
+              <ScalarProperty Name="SessionId" ColumnName="Sessions_SessionId" />
+            </EndProperty>
+            <EndProperty Name="Speakers">
+              <ScalarProperty Name="SpeakerId" ColumnName="Speakers_SpeakerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model3">
+        <EntityTypeShape EntityType="ConferencesModel.ConferenceTrack" Width="1.5" PointX="0.75" PointY="2.75" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferencesModel.DeprecatedConferenceTrack" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferencesModel.Session" Width="1.5" PointX="3" PointY="2.375" Height="2.9417936197916661" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferencesModel.Speaker" Width="1.5" PointX="5.25" PointY="1.125" Height="3.1340950520833313" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferencesModel.Workshop" Width="1.5" PointX="5.25" PointY="5" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="ConferencesModel.FK_ConferenceTrackSession" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.8362939453125002" />
+          <ConnectorPoint PointX="3" PointY="3.8362939453125002" />
+        </AssociationConnector>
+        <AssociationConnector Association="ConferencesModel.FK_Workshop_inherits_Session" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.1583968098958328" />
+          <ConnectorPoint PointX="5.25" PointY="5.1583968098958328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ConferencesModel.SpeakerSessions" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.3170475260416659" />
+          <ConnectorPoint PointX="5.25" PointY="3.3170475260416659" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+prod: admin panels
+mots: cl�s data context.
+/************** prod   ***************/
+1.create project codedHome.Admin
+2.create a new Data Context with ado.net(admx model) for the protocole look folder. 
+3.decommenter les lignes du globlax.cs
+4.give the new name of our dataentities
+5.pacakage: System.Data.Entity & System.Data.Entity.Insfrastructure
+6.make ScaffolAllTables = true;
+7.to the admin panels add a new roles
+8.attacher � chaque utilisateur son type de role: remarque user a le role admin; customer le role  user, et 
+manager le role manager(faut corriger �a les gars).
