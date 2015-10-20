@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ASPNET5Samurai.Models.Samurai>
+
+@{
+     ViewBag.Title = "Home Page";
+}
+
+@Model.Count()
+<br />
+<ul c>
+    @foreach (var samurai in @Model)
+    {
+        <li>@samurai.Name</li>
+    }
+</ul>
+
+@using (Html.BeginForm("Insert", "Home"))
+{
+    @Html.TextBox("name")
+    <input type="submit" value="Add Samurai" />
+}
+
+
+  

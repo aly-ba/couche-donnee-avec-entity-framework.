@@ -1,0 +1,8 @@
+﻿{
+	"EntityFramework": {
+		"SamuraiContext": {
+			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=EF7SamuraiASPNET5;Trusted_Connection=True;"
+
+		}
+	}
+}
